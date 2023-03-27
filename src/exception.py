@@ -1,4 +1,6 @@
 import sys
+import logging
+
 
 def error_massage_details(error,error_details:sys):
     _,_,exc_tb=error_details.exc_info()
@@ -12,9 +14,10 @@ def error_massage_details(error,error_details:sys):
 
 class CustomException(Exception):
     def __init__(self,error_massage,error_details:sys):
-        super.__init__(error_massage)
+        super().__init__(error_massage)
         self.error_massage=error_massage_details(error_massage,error_details=error_details)
 
 
     def __str__(self):
         return self.error_massage
+    
